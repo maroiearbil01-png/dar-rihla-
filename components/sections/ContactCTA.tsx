@@ -3,11 +3,13 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
+import { t, type Locale } from "@/lib/translations";
+import { localePath } from "@/lib/paths";
 
 /**
  * Closing call-to-action banner encouraging visitors to get in touch.
  */
-export function ContactCTA() {
+export function ContactCTA({ locale }: { locale: Locale }) {
   return (
     <section className="relative isolate overflow-hidden py-24 md:py-32">
       <Image
@@ -21,17 +23,16 @@ export function ContactCTA() {
 
       <Container className="relative z-10 flex flex-col items-center text-center">
         <p className="text-xs font-medium uppercase tracking-[0.3em] text-sand">
-          Votre voyage commence ici
+          {t(locale, "Votre voyage commence ici")}
         </p>
         <h2 className="mt-5 max-w-2xl font-serif text-3xl leading-tight text-cream sm:text-4xl md:text-5xl">
-          Préparez votre séjour à {siteConfig.name}
+          {t(locale, "Préparez votre séjour à")} {siteConfig.name}
         </h2>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-sand/90">
-          Notre équipe se tient à votre disposition pour répondre à toutes vos
-          questions et vous aider à organiser votre séjour aux Habous.
+          {t(locale, "Notre équipe se tient à votre disposition pour répondre à toutes vos questions et vous aider à organiser votre séjour aux Habous.")}
         </p>
-        <Button href="/contact" size="lg" variant="primary" className="mt-8">
-          Nous contacter
+        <Button href={localePath(locale, "/contact")} size="lg" variant="primary" className="mt-8">
+          {t(locale, "Nous contacter")}
           <ArrowRight size={18} aria-hidden />
         </Button>
       </Container>

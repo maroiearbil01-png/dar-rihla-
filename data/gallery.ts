@@ -6,7 +6,6 @@ import type { GalleryImage } from "@/types";
  */
 export const galleryImages: GalleryImage[] = [
   // Hôtel — intérieurs & architecture
-  { src: "/images/hotel/grand-salon-marocain.jpeg", alt: "Grand salon marocain de Riad Dar Rihla", category: "hotel", span: "wide" },
   { src: "/images/hotel/porte-dentree-marocaine.jpeg", alt: "Porte d'entrée marocaine sculptée", category: "hotel", span: "tall" },
   { src: "/images/hotel/salon-marocain-restaurant.jpeg", alt: "Salon marocain attenant au restaurant", category: "hotel" },
   { src: "/images/hotel/salon-marocain-restaurant2.jpeg", alt: "Détail du salon marocain et du restaurant", category: "hotel" },

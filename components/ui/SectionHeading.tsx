@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { t, type Locale } from "@/lib/translations";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -9,12 +10,13 @@ interface SectionHeadingProps {
   className?: string;
   /** Heading level for correct document outline. Defaults to h2. */
   as?: "h1" | "h2" | "h3";
+  locale: Locale;
 }
 
 /**
  * Consistent eyebrow + title + description block used across all sections.
  */
-export function SectionHeading({
+export async function SectionHeading({
   eyebrow,
   title,
   description,
@@ -22,6 +24,7 @@ export function SectionHeading({
   light = false,
   className,
   as: Heading = "h2",
+  locale,
 }: SectionHeadingProps) {
   return (
     <div
@@ -38,7 +41,7 @@ export function SectionHeading({
             light ? "text-sand" : "text-clay"
           )}
         >
-          {eyebrow}
+          {t(locale, eyebrow)}
         </p>
       ) : null}
       <Heading
@@ -47,7 +50,7 @@ export function SectionHeading({
           light ? "text-cream" : "text-charcoal"
         )}
       >
-        {title}
+        {t(locale, title)}
       </Heading>
       {description ? (
         <p
@@ -56,7 +59,7 @@ export function SectionHeading({
             light ? "text-sand" : "text-ink/80"
           )}
         >
-          {description}
+          {t(locale, description)}
         </p>
       ) : null}
     </div>

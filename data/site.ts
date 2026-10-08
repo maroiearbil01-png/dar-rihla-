@@ -22,8 +22,8 @@ export const siteConfig = {
     city: "Casablanca",
     country: "Maroc",
   },
-  phone: "+212 5 22 00 00 00",
-  email: "contact@dar-rihla.example",
+  phone: "+212 522 490 400",
+  email: "bookdarrihla@gmail.com",
   hours: [
     { label: "Réception", value: "24h/24 — 7j/7" },
     { label: "Petit-déjeuner", value: "7h30 – 10h30" },
@@ -33,6 +33,7 @@ export const siteConfig = {
     name: "Aéroport Mohammed V de Casablanca",
     distanceKm: 27,
   },
+  mapUrl: "https://share.google/wVGJXTVZc2ZJIk4Wv",
   mapEmbedUrl:
     "https://www.google.com/maps?q=Quartier+des+Habous,+Casablanca&output=embed",
 } as const;
@@ -47,7 +48,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "Instagram", href: "https://instagram.com", icon: InstagramIcon },
+  { label: "Instagram", href: "https://www.instagram.com/dar_rihla/", icon: InstagramIcon },
   { label: "Facebook", href: "https://facebook.com", icon: FacebookIcon },
   { label: "Email", href: `mailto:${siteConfig.email}`, icon: Mail },
 ];

@@ -2,13 +2,14 @@
 
 import { useState, type FormEvent } from "react";
 import { Send } from "lucide-react";
+import { t, type Locale } from "@/lib/translations";
 
 /**
  * Purely visual contact form — no backend yet. Submission is intercepted
  * client-side and replaced with a confirmation message so the UI feels
  * complete without implying a working integration.
  */
-export function ContactForm() {
+export function ContactForm({ locale }: { locale: Locale }) {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -22,10 +23,9 @@ export function ContactForm() {
         role="status"
         className="rounded-2xl border border-clay/30 bg-sand/60 p-8 text-center"
       >
-        <p className="font-serif text-2xl text-charcoal">Merci pour votre message</p>
+        <p className="font-serif text-2xl text-charcoal">{t(locale, "Merci pour votre message")}</p>
         <p className="mt-3 text-sm leading-relaxed text-ink/75">
-          Notre équipe reviendra vers vous dans les meilleurs délais. À très
-          bientôt à Riad Dar Rihla.
+          {t(locale, "Notre équipe reviendra vers vous dans les meilleurs délais. À très bientôt à Riad Dar Rihla.")}
         </p>
       </div>
     );
@@ -36,7 +36,7 @@ export function ContactForm() {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-sm font-medium text-charcoal">
-            Nom complet
+            {t(locale, "Nom complet")}
           </label>
           <input
             id="name"
@@ -45,12 +45,12 @@ export function ContactForm() {
             required
             autoComplete="name"
             className="mt-2 h-12 w-full rounded-lg border border-sand-dark/60 bg-white px-4 text-sm text-charcoal placeholder:text-ink/40 focus-visible:outline-none"
-            placeholder="Votre nom"
+            placeholder={t(locale, "Votre nom")}
           />
         </div>
         <div>
           <label htmlFor="email" className="text-sm font-medium text-charcoal">
-            Email
+            {t(locale, "Email")}
           </label>
           <input
             id="email"
@@ -59,27 +59,27 @@ export function ContactForm() {
             required
             autoComplete="email"
             className="mt-2 h-12 w-full rounded-lg border border-sand-dark/60 bg-white px-4 text-sm text-charcoal placeholder:text-ink/40 focus-visible:outline-none"
-            placeholder="vous@exemple.com"
+            placeholder={t(locale, "vous@exemple.com")}
           />
         </div>
       </div>
 
       <div>
         <label htmlFor="subject" className="text-sm font-medium text-charcoal">
-          Sujet
+          {t(locale, "Sujet")}
         </label>
         <input
           id="subject"
           name="subject"
           type="text"
           className="mt-2 h-12 w-full rounded-lg border border-sand-dark/60 bg-white px-4 text-sm text-charcoal placeholder:text-ink/40 focus-visible:outline-none"
-          placeholder="Demande d'information, séjour, événement…"
+          placeholder={t(locale, "Demande d'information, séjour, événement…")}
         />
       </div>
 
       <div>
         <label htmlFor="message" className="text-sm font-medium text-charcoal">
-          Message
+          {t(locale, "Message")}
         </label>
         <textarea
           id="message"
@@ -87,7 +87,7 @@ export function ContactForm() {
           required
           rows={5}
           className="mt-2 w-full resize-none rounded-lg border border-sand-dark/60 bg-white px-4 py-3 text-sm text-charcoal placeholder:text-ink/40 focus-visible:outline-none"
-          placeholder="Votre message…"
+          placeholder={t(locale, "Votre message…")}
         />
       </div>
 
@@ -95,7 +95,7 @@ export function ContactForm() {
         type="submit"
         className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-clay px-7 text-sm font-medium tracking-wide text-cream transition-colors hover:bg-clay-dark focus-visible:outline-none"
       >
-        Envoyer le message
+        {t(locale, "Envoyer le message")}
         <Send size={16} aria-hidden />
       </button>
     </form>

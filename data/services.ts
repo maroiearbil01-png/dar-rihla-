@@ -39,9 +39,9 @@ export const services: Service[] = [
   },
   {
     slug: "velos",
-    title: "Prêt de vélos",
+    title: "Location de vélos",
     description:
-      "Empruntez l'un de nos vélos pour explorer le quartier des Habous et ses environs à votre rythme.",
+      "Louez un vélo et partez à la découverte de la ville à votre rythme. En option, un guide peut vous accompagner pour explorer la ville.",
     icon: Bike,
   },
   {

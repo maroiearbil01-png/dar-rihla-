@@ -9,6 +9,15 @@ import { galleryCategoryLabels } from "@/data/gallery";
 
 interface GalleryGridProps {
   images: GalleryImage[];
+  labels: {
+    all: string;
+    filter: string;
+    expand: string;
+    close: string;
+    previous: string;
+    next: string;
+    categories: Record<GalleryCategory, string>;
+  };
 }
 
 const spanClasses: Record<NonNullable<GalleryImage["span"]>, string> = {
@@ -22,7 +31,7 @@ const spanClasses: Record<NonNullable<GalleryImage["span"]>, string> = {
  * Keeps all interactivity (filtering, lightbox, keyboard nav) isolated
  * here so the page itself can remain a Server Component.
  */
-export function GalleryGrid({ images }: GalleryGridProps) {
+export function GalleryGrid({ images, labels }: GalleryGridProps) {
   const [category, setCategory] = useState<GalleryCategory | "all">("all");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -66,11 +75,11 @@ export function GalleryGrid({ images }: GalleryGridProps) {
     <div>
       <div
         role="tablist"
-        aria-label="Filtrer la galerie par catégorie"
+        aria-label={labels.filter}
         className="flex flex-wrap gap-3"
       >
         {categories.map((cat) => {
-          const label = cat === "all" ? "Tous" : galleryCategoryLabels[cat];
+          const label = cat === "all" ? labels.all : labels.categories[cat];
           const isActive = category === cat;
           return (
             <button
@@ -101,7 +110,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
             key={image.src}
             type="button"
             onClick={() => setActiveIndex(index)}
-            aria-label={`Agrandir la photo : ${image.alt}`}
+            aria-label={`${labels.expand}${image.alt}`}
             className={cn(
               "group relative block overflow-hidden rounded-xl focus-visible:outline-none",
               spanClasses[image.span ?? "normal"]
@@ -129,7 +138,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
           <button
             type="button"
             onClick={close}
-            aria-label="Fermer la photo"
+            aria-label={labels.close}
             className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full text-cream transition-colors hover:bg-cream/10"
           >
             <X size={26} aria-hidden />
@@ -138,7 +147,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
           <button
             type="button"
             onClick={showPrev}
-            aria-label="Photo précédente"
+            aria-label={labels.previous}
             className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-cream transition-colors hover:bg-cream/10 sm:left-6"
           >
             <ChevronLeft size={28} aria-hidden />
@@ -158,7 +167,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
           <button
             type="button"
             onClick={showNext}
-            aria-label="Photo suivante"
+            aria-label={labels.next}
             className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-cream transition-colors hover:bg-cream/10 sm:right-6"
           >
             <ChevronRight size={28} aria-hidden />

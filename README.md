@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dar Rihla
 
-## Getting Started
+Site vitrine Next.js exporté en HTML statique. Les versions française et anglaise sont pré-générées sous `/fr/` et `/en/`.
 
-First, run the development server:
+## Build local
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le site exporté est généré dans `out/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Déploiement sur Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Importer le dépôt GitHub `azehouani/dar-rihla` dans Vercel, avec le dossier du projet comme répertoire racine. Vercel détecte Next.js et lance `npm run build`, qui génère le site statique dans `out/`.
 
-## Learn More
+Chaque push sur `main` déclenche un nouveau déploiement de production ; les autres branches et les pull requests créent des aperçus.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Les réservations et demandes d'expérience doivent rester des liens externes (Booking.com, Airbnb et WhatsApp). Le site ne traite ni réservation ni paiement. Les destinations Booking.com, Airbnb et WhatsApp restent à ajouter quand leurs URL et numéro de contact seront fournis.

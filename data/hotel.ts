@@ -6,10 +6,10 @@
 export const hotelStory = {
   intro: {
     eyebrow: "Bienvenue",
-    title: "Une maison, pas un hôtel",
+    title: "L'hospitalité d'une maison",
     paragraphs: [
       "À Riad Dar Rihla, nous aimons recevoir nos voyageurs comme des invités. Nous serons heureux de vous accueillir personnellement, de vous faire découvrir la maison et de vous accompagner tout au long de votre séjour.",
-      "Nous aimons partager nos bonnes adresses, nos conseils et nos coups de cœur pour vous permettre de découvrir Casablanca autrement, des ruelles des Habous aux endroits que l'on ne trouve pas toujours dans les guides.",
+      "Nous aimons partager nos bonnes adresses, nos conseils et nos coups de cœur pour vous permettre de découvrir Casablanca autrement, des ruelles des Habous aux adresses confidentielles appréciées des habitants.",
     ],
   },
   history: {
@@ -28,12 +28,12 @@ export const hotelStory = {
     eyebrow: "Architecture & design",
     title: "L'âme du zellige, une nouvelle vie",
     paragraphs: [
-      "Ici, nous n'avons pas voulu créer un hôtel. Nous avons voulu faire vivre une maison. Une maison où l'on se réveille dans une architecture centenaire, où l'on prend son petit-déjeuner dans le patio, où l'on s'installe sous l'olivier.",
+      "Nous faisons vivre une maison où l'on se réveille dans une architecture centenaire, où l'on prend son petit-déjeuner dans le patio et où l'on s'installe sous l'olivier.",
       "Chaque espace — salons marocains, patio, restaurant — a été pensé pour marier le patrimoine architectural à un confort contemporain discret.",
     ],
     image: {
-      src: "/images/hotel/grand-salon-marocain.jpeg",
-      alt: "Grand salon marocain traditionnel de Riad Dar Rihla",
+      src: "/images/hotel/salon-marocain-restaurant.jpeg",
+      alt: "Salon marocain attenant au restaurant",
     },
   },
   atmosphere: {
@@ -41,7 +41,7 @@ export const hotelStory = {
     title: "Découvrir Casablanca autrement",
     paragraphs: [
       "Dar Rihla signifie « la maison du voyage ». Et le vôtre commence ici : chaque espace invite à la curiosité, à l'inspiration et au bien-être, que vous soyez ici pour quelques jours, pour le travail ou simplement pour découvrir la ville.",
-      "Ici, vous n'êtes pas simplement de passage. Vous êtes notre invité.",
+      "Ici, vous êtes notre invité, accueilli au cœur d'une maison de caractère.",
     ],
     image: {
       src: "/images/hotel/jardin-salon-de-the.jpeg",

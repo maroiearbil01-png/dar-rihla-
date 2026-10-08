@@ -5,11 +5,13 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { galleryImages } from "@/data/gallery";
+import { t, type Locale } from "@/lib/translations";
+import { localePath } from "@/lib/paths";
 
 /**
  * Small preview grid linking through to the full Gallery page.
  */
-export function GalleryPreview() {
+export function GalleryPreview({ locale }: { locale: Locale }) {
   const preview = galleryImages.slice(0, 6);
 
   return (
@@ -20,8 +22,9 @@ export function GalleryPreview() {
             eyebrow="Galerie"
             title="Un aperçu de la maison"
             description="Patios, salons marocains, chambres et jardin — un avant-goût en images de votre séjour."
+            locale={locale}
           />
-          <Button href="/gallery" variant="secondary" className="hidden sm:inline-flex">
+          <Button href={localePath(locale, "/gallery")} variant="secondary" className="hidden sm:inline-flex">
             Toute la galerie
             <ArrowRight size={16} aria-hidden />
           </Button>
@@ -31,7 +34,7 @@ export function GalleryPreview() {
           {preview.map((image, index) => (
             <Link
               key={image.src}
-              href="/gallery"
+              href={localePath(locale, "/gallery")}
               className={
                 "group relative block overflow-hidden rounded-xl " +
                 (index === 0 ? "col-span-2 row-span-2 aspect-square sm:aspect-auto" : "aspect-square")
@@ -39,7 +42,7 @@ export function GalleryPreview() {
             >
               <Image
                 src={image.src}
-                alt={image.alt}
+                alt={t(locale, image.alt)}
                 fill
                 sizes="(min-width: 768px) 30vw, 50vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -49,8 +52,8 @@ export function GalleryPreview() {
           ))}
         </div>
 
-        <Button href="/gallery" variant="secondary" className="mt-10 w-full sm:hidden">
-          Toute la galerie
+        <Button href={localePath(locale, "/gallery")} variant="secondary" className="mt-10 w-full sm:hidden">
+            {t(locale, "Toute la galerie")}
           <ArrowRight size={16} aria-hidden />
         </Button>
       </Container>

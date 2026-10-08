@@ -7,15 +7,28 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { hotelHighlights, hotelStory, neighborhood } from "@/data/hotel";
 import { siteConfig } from "@/data/site";
+import { t, type Locale } from "@/lib/translations";
+import { localePath } from "@/lib/paths";
 
-export const metadata: Metadata = {
-  title: "L'hôtel",
-  description:
-    "Découvrez l'histoire, l'architecture et l'atmosphère de Riad Dar Rihla, maison centenaire du quartier des Habous à Casablanca.",
-  alternates: { canonical: "/hotel" },
-};
+export function createMetadata(locale: Locale): Metadata {
+  return {
+    title: t(locale, "L'hôtel"),
+    description: t(locale, "Découvrez l'histoire, l'architecture et l'atmosphère de Riad Dar Rihla, maison centenaire du quartier des Habous à Casablanca."),
+    alternates: {
+      canonical: localePath(locale, "/hotel"),
+      languages: {
+        fr: localePath("fr", "/hotel"),
+        en: localePath("en", "/hotel"),
+      },
+    },
+  };
+}
 
-export default function HotelPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  return createMetadata("fr");
+}
+
+export default function HotelPage({ locale = "fr" }: { locale?: Locale }) {
   return (
     <>
       <PageHero
@@ -26,6 +39,7 @@ export default function HotelPage() {
           src: "/images/hotel/salon-marocain-restaurant.jpeg",
           alt: "Salon marocain de Riad Dar Rihla",
         }}
+        locale={locale}
       />
 
       <EditorialSection
@@ -33,6 +47,7 @@ export default function HotelPage() {
         title={hotelStory.history.title}
         paragraphs={hotelStory.history.paragraphs}
         image={hotelStory.history.image}
+        locale={locale}
       />
 
       <EditorialSection
@@ -42,6 +57,7 @@ export default function HotelPage() {
         image={hotelStory.architecture.image}
         reverse
         tone="sand"
+        locale={locale}
       />
 
       <EditorialSection
@@ -49,9 +65,10 @@ export default function HotelPage() {
         title={hotelStory.atmosphere.title}
         paragraphs={hotelStory.atmosphere.paragraphs}
         image={hotelStory.atmosphere.image}
+        locale={locale}
       />
 
-      <Highlights items={hotelHighlights} />
+      <Highlights items={hotelHighlights} locale={locale} />
 
       <section className="bg-cream py-20 md:py-28">
         <Container className="max-w-3xl text-center">
@@ -59,18 +76,19 @@ export default function HotelPage() {
             eyebrow={neighborhood.eyebrow}
             title={neighborhood.title}
             align="center"
+            locale={locale}
           />
           <div className="mx-auto mt-6 max-w-2xl space-y-4">
             {neighborhood.paragraphs.map((paragraph) => (
               <p key={paragraph} className="text-base leading-relaxed text-ink/80">
-                {paragraph}
+                {t(locale, paragraph)}
               </p>
             ))}
           </div>
         </Container>
       </section>
 
-      <ContactCTA />
+      <ContactCTA locale={locale} />
     </>
   );
 }

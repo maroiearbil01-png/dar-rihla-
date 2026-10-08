@@ -8,13 +8,16 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { navItems, siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { t, type Locale } from "@/lib/translations";
+import { localePath } from "@/lib/paths";
+import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
 
 /**
  * Responsive site navigation. Client component because it tracks
  * scroll position (for the translucent -> solid background transition)
  * and the open/closed state of the mobile menu.
  */
-export function Navbar() {
+export function Navbar({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -35,7 +38,8 @@ export function Navbar() {
     setOpen(false);
   }
 
-  const isHome = pathname === "/";
+  const currentPath = pathname.replace(/^\/(?:fr|en)(?=\/|$)/, "") || "/";
+  const isHome = currentPath === "/";
   const solid = scrolled || open || !isHome;
 
   return (
@@ -49,7 +53,7 @@ export function Navbar() {
     >
       <Container className="flex h-20 items-center justify-between">
         <Link
-          href="/"
+          href={localePath(locale)}
           className={cn(
             "font-serif text-2xl tracking-wide transition-colors",
             solid ? "text-charcoal" : "text-cream"
@@ -59,16 +63,16 @@ export function Navbar() {
         </Link>
 
         <nav
-          aria-label="Navigation principale"
-          className="hidden items-center gap-1 md:flex"
+          aria-label={t(locale, "Navigation principale")}
+          className="hidden items-center gap-1 lg:flex"
         >
           {navItems.map((item) => {
             const active =
-              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+              item.href === "/" ? isHome : currentPath.startsWith(item.href);
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={localePath(locale, item.href)}
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "relative px-4 py-2 text-sm font-medium tracking-wide transition-colors",
@@ -78,7 +82,7 @@ export function Navbar() {
                   active && (solid ? "text-clay" : "text-cream")
                 )}
               >
-                {item.label}
+                {t(locale, item.label)}
                 {active ? (
                   <span
                     className={cn(
@@ -92,9 +96,10 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden md:block">
-          <Button href="/contact" size="md" variant={solid ? "primary" : "outline"}>
-            Contact
+        <div className="hidden items-center gap-3 lg:flex">
+          <LocaleSwitcher locale={locale} compact light={!solid} />
+          <Button href={localePath(locale, "/contact")} size="md" variant={solid ? "primary" : "outline"}>
+            {t(locale, "Contact")}
           </Button>
         </div>
 
@@ -103,9 +108,9 @@ export function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-label={open ? t(locale, "Fermer le menu") : t(locale, "Ouvrir le menu")}
           className={cn(
-            "inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors md:hidden",
+            "inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors lg:hidden",
             solid ? "text-charcoal" : "text-cream"
           )}
         >
@@ -116,23 +121,26 @@ export function Navbar() {
       <div
         id="mobile-menu"
         className={cn(
-          "overflow-hidden bg-cream shadow-lg transition-[max-height] duration-300 ease-out md:hidden",
-          open ? "max-h-96" : "max-h-0"
+          "overflow-hidden bg-cream shadow-lg transition-[max-height] duration-300 ease-out lg:hidden",
+          open ? "max-h-[40rem]" : "max-h-0"
         )}
       >
-        <nav aria-label="Navigation mobile" className="flex flex-col px-6 py-4">
+        <nav aria-label={t(locale, "Navigation principale")} className="flex flex-col px-6 py-4">
           {navItems.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={localePath(locale, item.href)}
               className="border-b border-sand-dark/60 py-3 text-base font-medium text-ink last:border-none"
             >
-              {item.label}
+                {t(locale, item.label)}
             </Link>
           ))}
-          <Button href="/contact" size="md" className="mt-4 w-full">
-            Contact
+          <Button href={localePath(locale, "/contact")} size="md" className="mt-4 w-full">
+            {t(locale, "Contact")}
           </Button>
+          <div className="mt-5 border-t border-sand-dark/60 pt-4">
+            <LocaleSwitcher locale={locale} />
+          </div>
         </nav>
       </div>
     </header>

@@ -1,15 +1,17 @@
 import type { Service } from "@/types";
+import { t, type Locale } from "@/lib/translations";
 
 interface ServiceCardProps {
   service: Service;
   light?: boolean;
+  locale: Locale;
 }
 
 /**
  * Reusable card for a single hotel service/facility.
  * Used on the Home page (subset) and the Services page (full list).
  */
-export function ServiceCard({ service, light = false }: ServiceCardProps) {
+export function ServiceCard({ service, light = false, locale }: ServiceCardProps) {
   const { title, description, icon: Icon } = service;
 
   return (
@@ -30,10 +32,10 @@ export function ServiceCard({ service, light = false }: ServiceCardProps) {
         <Icon size={22} aria-hidden />
       </span>
       <h3 className={`mt-5 font-serif text-xl ${light ? "text-cream" : "text-charcoal"}`}>
-        {title}
+        {t(locale, title)}
       </h3>
       <p className={`mt-2 text-sm leading-relaxed ${light ? "text-sand/80" : "text-ink/75"}`}>
-        {description}
+        {t(locale, description)}
       </p>
     </div>
   );
