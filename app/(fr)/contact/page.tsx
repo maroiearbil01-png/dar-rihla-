@@ -80,6 +80,22 @@ export default function ContactPage({ locale = "fr" }: { locale?: Locale }) {
                 </div>
               </li>
               <li className="flex items-start gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand text-clay text-xs font-semibold" aria-hidden>
+                  WA
+                </span>
+                <div>
+                  <p className="font-medium text-charcoal">WhatsApp</p>
+                  <a
+                    href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 block text-sm text-ink/75 hover:text-clay"
+                  >
+                    {siteConfig.whatsapp}
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-4">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand text-clay">
                   <Mail size={20} aria-hidden />
                 </span>

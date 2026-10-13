@@ -70,6 +70,17 @@ export function Footer({ locale }: { locale: Locale }) {
               </a>
             </li>
             <li className="flex items-center gap-3">
+              <span className="shrink-0 text-clay" aria-hidden>WhatsApp</span>
+              <a
+                href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cream"
+              >
+                {siteConfig.whatsapp}
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
               <Mail size={18} className="shrink-0 text-clay" aria-hidden />
               <a href={`mailto:${siteConfig.email}`} className="hover:text-cream">
                 {siteConfig.email}

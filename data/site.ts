@@ -23,6 +23,7 @@ export const siteConfig = {
     country: "Maroc",
   },
   phone: "+212 522 490 400",
+  whatsapp: "+212 640 255 057",
   email: "bookdarrihla@gmail.com",
   hours: [
     { label: "Réception", value: "24h/24 — 7j/7" },
