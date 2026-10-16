@@ -14,7 +14,7 @@ export const siteConfig = {
     "Un riad historique au cœur des Habous, à Casablanca — où l'hospitalité marocaine rencontre un confort raffiné.",
   description:
     "Riad Dar Rihla vous accueille comme un invité, dans une maison centenaire du quartier des Habous à Casablanca. Zelliges, plafonds sculptés et patio ombragé composent un décor authentique pensé pour ralentir le temps.",
-  url: "https://www.dar-rihla.example",
+  url: "https://riaddarrihla.ma",
   locale: "fr_FR",
   address: {
     street: "92 boulevard Victor Hugo",
