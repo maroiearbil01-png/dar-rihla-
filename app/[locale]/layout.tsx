@@ -32,7 +32,7 @@ export default async function LocaleLayout({
   const locale = toSiteLocale(routeLocale);
   return (
     <html lang={locale} className={`${inter.variable} ${display.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-cream font-sans text-charcoal">
+      <body className="flex min-h-full flex-col bg-cream pb-[calc(5rem+env(safe-area-inset-bottom))] font-sans text-charcoal lg:pb-0">
         <Navbar locale={locale} />
         <main className="flex-1">{children}</main>
         <Footer locale={locale} />

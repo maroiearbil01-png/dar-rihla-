@@ -1,4 +1,4 @@
-import RoomsPage, { createMetadata } from "@/app/(fr)/rooms/page";
+import RoomsPage, { createMetadata } from "@/components/pages/RoomsPage";
 import { toSiteLocale } from "@/lib/translations";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {

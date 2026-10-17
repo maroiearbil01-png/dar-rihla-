@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
 import { t, type Locale } from "@/lib/translations";
 import { localePath } from "@/lib/paths";
 import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
+import { BookingButton } from "@/components/ui/BookingButton";
 
 /**
  * Full-screen hero for the Home page. Communicates atmosphere immediately
@@ -41,12 +41,11 @@ export function Hero({ locale }: { locale: Locale }) {
         </p>
 
         <div className="animate-fade-in-up mt-10 flex flex-col gap-4 sm:flex-row [animation-delay:350ms]">
-          <Button href={localePath(locale, "/hotel")} size="lg" variant="primary">
-            {t(locale, "Découvrir le riad")}
-            <ArrowRight size={18} aria-hidden />
-          </Button>
+          <BookingButton locale={locale} location="home-hero">
+            {t(locale, "Réserver votre séjour")}
+          </BookingButton>
           <Button href={localePath(locale, "/rooms")} size="lg" variant="outline">
-            {t(locale, "Voir les chambres")}
+            {t(locale, "Découvrir nos chambres")}
           </Button>
         </div>
         <div className="animate-fade-in-up mt-8 flex flex-wrap items-center gap-3 [animation-delay:450ms]">

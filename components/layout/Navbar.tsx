@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { t, type Locale } from "@/lib/translations";
 import { localePath } from "@/lib/paths";
 import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
+import { BookingButton } from "@/components/ui/BookingButton";
 
 /**
  * Responsive site navigation. Client component because it tracks
@@ -98,9 +99,12 @@ export function Navbar({ locale }: { locale: Locale }) {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LocaleSwitcher locale={locale} compact light={!solid} />
-          <Button href={localePath(locale, "/contact")} size="md" variant={solid ? "primary" : "outline"}>
+          <Button href={localePath(locale, "/contact")} size="md" variant={solid ? "secondary" : "outline"}>
             {t(locale, "Contact")}
           </Button>
+          <BookingButton locale={locale} location="header" className="min-h-11 px-5 py-2 text-xs" >
+            {t(locale, "Réserver maintenant")}
+          </BookingButton>
         </div>
 
         <button
@@ -125,7 +129,7 @@ export function Navbar({ locale }: { locale: Locale }) {
           open ? "max-h-[40rem]" : "max-h-0"
         )}
       >
-        <nav aria-label={t(locale, "Navigation principale")} className="flex flex-col px-6 py-4">
+        <nav aria-label={t(locale, "Navigation principale")} className="flex flex-col px-6 py-4 pb-24">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -135,7 +139,7 @@ export function Navbar({ locale }: { locale: Locale }) {
                 {t(locale, item.label)}
             </Link>
           ))}
-          <Button href={localePath(locale, "/contact")} size="md" className="mt-4 w-full">
+          <Button href={localePath(locale, "/contact")} size="md" variant="secondary" className="mt-4 w-full">
             {t(locale, "Contact")}
           </Button>
           <div className="mt-5 border-t border-sand-dark/60 pt-4">
@@ -143,6 +147,10 @@ export function Navbar({ locale }: { locale: Locale }) {
           </div>
         </nav>
       </div>
+
+      <BookingButton locale={locale} location="mobile-sticky" placement="mobile-fixed">
+        {t(locale, "Réserver maintenant")}
+      </BookingButton>
     </header>
   );
 }

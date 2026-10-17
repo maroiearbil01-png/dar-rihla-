@@ -4,19 +4,21 @@ import { ArrowRight, BedDouble, Maximize, Users } from "lucide-react";
 import type { Room } from "@/types";
 import { t, type Locale } from "@/lib/translations";
 import { localePath } from "@/lib/paths";
+import { BookingButton } from "@/components/ui/BookingButton";
 
 interface RoomCardProps {
   room: Room;
   /** Marks the first image as a priority load (use for above-the-fold cards). */
   priority?: boolean;
   locale: Locale;
+  showBookingCta?: boolean;
 }
 
 /**
  * Reusable room card used on both the Home page (featured rooms) and the
  * Rooms page. Add new rooms in data/rooms.ts — no changes needed here.
  */
-export function RoomCard({ room, priority = false, locale }: RoomCardProps) {
+export function RoomCard({ room, priority = false, locale, showBookingCta = false }: RoomCardProps) {
   const cover = room.images[0];
 
   return (
@@ -74,17 +76,24 @@ export function RoomCard({ room, priority = false, locale }: RoomCardProps) {
           ))}
         </ul>
 
-        <Link
-          href={localePath(locale, `/rooms#${room.slug}`)}
-          className="mt-6 inline-flex items-center gap-2 self-start text-sm font-medium text-clay transition-colors hover:text-clay-dark"
-        >
-          {t(locale, "Découvrir")}
-          <ArrowRight
-            size={16}
-            aria-hidden
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          />
-        </Link>
+        <div className="mt-6 flex flex-col items-start gap-3">
+          <Link
+            href={localePath(locale, `/rooms#${room.slug}`)}
+            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-clay transition-colors hover:text-clay-dark"
+          >
+            {t(locale, "Découvrir")}
+            <ArrowRight
+              size={16}
+              aria-hidden
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </Link>
+          {showBookingCta ? (
+            <BookingButton locale={locale} location={`room-${room.slug}`} className="w-full">
+              {t(locale, "Réserver cette chambre")}
+            </BookingButton>
+          ) : null}
+        </div>
       </div>
     </article>
   );

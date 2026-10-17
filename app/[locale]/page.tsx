@@ -1,4 +1,4 @@
-import HomePage, { createMetadata } from "@/app/(fr)/page";
+import HomePage, { createMetadata } from "@/components/pages/HomePage";
 import { toSiteLocale } from "@/lib/translations";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {

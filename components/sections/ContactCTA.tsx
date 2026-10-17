@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/data/site";
 import { t, type Locale } from "@/lib/translations";
 import { localePath } from "@/lib/paths";
+import { BookingButton } from "@/components/ui/BookingButton";
 
 /**
  * Closing call-to-action banner encouraging visitors to get in touch.
@@ -31,10 +32,15 @@ export function ContactCTA({ locale }: { locale: Locale }) {
         <p className="mt-5 max-w-xl text-base leading-relaxed text-sand/90">
           {t(locale, "Notre équipe se tient à votre disposition pour répondre à toutes vos questions et vous aider à organiser votre séjour aux Habous.")}
         </p>
-        <Button href={localePath(locale, "/contact")} size="lg" variant="primary" className="mt-8">
-          {t(locale, "Nous contacter")}
-          <ArrowRight size={18} aria-hidden />
-        </Button>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <BookingButton locale={locale} location="page-closing">
+            {t(locale, "Réserver votre séjour")}
+          </BookingButton>
+          <Button href={localePath(locale, "/contact")} size="lg" variant="outline">
+            {t(locale, "Nous contacter")}
+            <ArrowRight size={18} aria-hidden />
+          </Button>
+        </div>
       </Container>
     </section>
   );

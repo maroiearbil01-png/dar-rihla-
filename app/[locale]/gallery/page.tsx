@@ -1,4 +1,4 @@
-import GalleryPage, { createMetadata } from "@/app/(fr)/gallery/page";
+import GalleryPage, { createMetadata } from "@/components/pages/GalleryPage";
 import { toSiteLocale } from "@/lib/translations";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
