@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site";
 import { t, type Locale } from "@/lib/translations";
 
 /**
- * Presents the hotel's location with a map embed area and quick facts.
+ * Presents the riad's location with a map embed area and quick facts.
  * Uses an iframe embed (no API key / billing required) as a lightweight
  * "map placeholder" per the project's no-backend constraint.
  */

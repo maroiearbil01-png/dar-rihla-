@@ -12,7 +12,7 @@ import { localePath } from "@/lib/paths";
 
 export function createMetadata(locale: Locale): Metadata {
   return {
-    title: t(locale, "L'hôtel"),
+    title: t(locale, "Le riad"),
     description: t(locale, "Découvrez l'histoire, l'architecture et l'atmosphère de Riad Dar Rihla, maison centenaire du quartier des Habous à Casablanca."),
     alternates: {
       canonical: localePath(locale, "/hotel"),
@@ -32,7 +32,7 @@ export default function HotelPage({ locale = "fr" }: { locale?: Locale }) {
   return (
     <>
       <PageHero
-        eyebrow="L'hôtel"
+        eyebrow="Le riad"
         title="Une maison, un voyage"
         description={siteConfig.description}
         image={{

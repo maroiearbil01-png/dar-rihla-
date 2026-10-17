@@ -1,5 +1,5 @@
 /**
- * Long-form editorial content for the Home and Hotel pages.
+ * Long-form editorial content for the Home and Riad pages.
  * Adapted from public/hotel-description.txt.
  */
 

@@ -8,7 +8,7 @@ import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
 
 /**
  * Full-screen hero for the Home page. Communicates atmosphere immediately
- * with the hotel logo, name, tagline and primary CTAs.
+ * with the riad logo, name, tagline and primary CTAs.
  */
 export function Hero({ locale }: { locale: Locale }) {
   return (
@@ -42,7 +42,7 @@ export function Hero({ locale }: { locale: Locale }) {
 
         <div className="animate-fade-in-up mt-10 flex flex-col gap-4 sm:flex-row [animation-delay:350ms]">
           <Button href={localePath(locale, "/hotel")} size="lg" variant="primary">
-            {t(locale, "Découvrir l'hôtel")}
+            {t(locale, "Découvrir le riad")}
             <ArrowRight size={18} aria-hidden />
           </Button>
           <Button href={localePath(locale, "/rooms")} size="lg" variant="outline">

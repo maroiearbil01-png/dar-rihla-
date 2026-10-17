@@ -41,7 +41,7 @@ export const siteConfig = {
 
 export const navItems: NavItem[] = [
   { label: "Accueil", href: "/" },
-  { label: "L'hôtel", href: "/hotel" },
+  { label: "Le riad", href: "/hotel" },
   { label: "Chambres", href: "/rooms" },
   { label: "Services", href: "/services" },
   { label: "Galerie", href: "/gallery" },

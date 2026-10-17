@@ -5,14 +5,14 @@ import type { GalleryImage } from "@/types";
  * Home page gallery preview. Categories are used for the filter UI.
  */
 export const galleryImages: GalleryImage[] = [
-  // Hôtel — intérieurs & architecture
-  { src: "/images/hotel/porte-dentree-marocaine.jpeg", alt: "Porte d'entrée marocaine sculptée", category: "hotel", span: "tall" },
-  { src: "/images/hotel/salon-marocain-restaurant.jpeg", alt: "Salon marocain attenant au restaurant", category: "hotel" },
-  { src: "/images/hotel/salon-marocain-restaurant2.jpeg", alt: "Détail du salon marocain et du restaurant", category: "hotel" },
-  { src: "/images/hotel/restaurant.jpeg", alt: "Salle de restaurant de Riad Dar Rihla", category: "hotel", span: "wide" },
-  { src: "/images/hotel/restaurant-interieur.jpeg", alt: "Intérieur du restaurant", category: "hotel" },
-  { src: "/images/hotel/interieur-restaurant.jpeg", alt: "Vue intérieure du restaurant", category: "hotel" },
-  { src: "/images/hotel/jardin-salon-de-the.jpeg", alt: "Jardin et salon de thé", category: "hotel", span: "tall" },
+  // Riad — intérieurs & architecture
+  { src: "/images/hotel/porte-dentree-marocaine.jpeg", alt: "Porte d'entrée marocaine sculptée", category: "riad", span: "tall" },
+  { src: "/images/hotel/salon-marocain-restaurant.jpeg", alt: "Salon marocain attenant au restaurant", category: "riad" },
+  { src: "/images/hotel/salon-marocain-restaurant2.jpeg", alt: "Détail du salon marocain et du restaurant", category: "riad" },
+  { src: "/images/hotel/restaurant.jpeg", alt: "Salle de restaurant de Riad Dar Rihla", category: "riad", span: "wide" },
+  { src: "/images/hotel/restaurant-interieur.jpeg", alt: "Intérieur du restaurant", category: "riad" },
+  { src: "/images/hotel/interieur-restaurant.jpeg", alt: "Vue intérieure du restaurant", category: "riad" },
+  { src: "/images/hotel/jardin-salon-de-the.jpeg", alt: "Jardin et salon de thé", category: "riad", span: "tall" },
 
   // Espaces — jardin, terrasse, couloirs
   { src: "/images/gallery/vue-de-lensemble.jpeg", alt: "Vue d'ensemble de Riad Dar Rihla", category: "espaces", span: "wide" },
@@ -44,7 +44,7 @@ export const galleryImages: GalleryImage[] = [
 ];
 
 export const galleryCategoryLabels: Record<GalleryImage["category"], string> = {
-  hotel: "Hôtel",
+  riad: "Riad",
   chambres: "Chambres",
   espaces: "Espaces & Jardin",
 };

@@ -12,7 +12,7 @@ import {
 import type { Service } from "@/types";
 
 /**
- * Data-driven list of hotel services & facilities.
+ * Data-driven list of riad services & facilities.
  * Add, remove or edit entries here — ServicesGrid renders whatever is here.
  */
 export const services: Service[] = [

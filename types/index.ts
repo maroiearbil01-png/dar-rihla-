@@ -18,7 +18,7 @@ export interface NavItem {
 }
 
 /**
- * A hotel room that can be displayed via the RoomCard component.
+ * A riad room that can be displayed via the RoomCard component.
  */
 export interface Room {
   slug: string;
@@ -37,7 +37,7 @@ export interface Room {
 }
 
 /**
- * A hotel service or facility shown on the Services page and Home page.
+ * A riad service or facility shown on the Services page and Home page.
  */
 export interface Service {
   slug: string;
@@ -49,7 +49,7 @@ export interface Service {
 /**
  * A category used to filter the photo gallery.
  */
-export type GalleryCategory = "hotel" | "chambres" | "espaces";
+export type GalleryCategory = "riad" | "chambres" | "espaces";
 
 /**
  * A single photograph in the gallery.

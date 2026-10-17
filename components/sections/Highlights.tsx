@@ -13,7 +13,7 @@ interface HighlightsProps {
 }
 
 /**
- * Simple numbered highlights grid for the Hotel page.
+ * Simple numbered highlights grid for the Riad page.
  */
 export function Highlights({ items, locale }: HighlightsProps) {
   return (

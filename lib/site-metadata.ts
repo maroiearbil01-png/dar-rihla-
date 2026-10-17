@@ -27,8 +27,8 @@ export function createSiteMetadata(locale: Locale): Metadata {
     description,
     keywords:
       locale === "en"
-        ? ["riad Casablanca", "hotel Habous", "Dar Rihla"]
-        : ["riad Casablanca", "hôtel Habous", "Dar Rihla"],
+        ? ["riad Casablanca", "riad Habous", "Dar Rihla"]
+        : ["riad Casablanca", "riad Habous", "Dar Rihla"],
     openGraph: {
       title,
       description,

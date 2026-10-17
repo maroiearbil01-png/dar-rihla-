@@ -11,7 +11,7 @@ interface PageHeroProps {
 }
 
 /**
- * Compact page header used on every inner page (Hotel, Rooms, Services,
+ * Compact page header used on every inner page (Riad, Rooms, Services,
  * Gallery, Contact) to keep a consistent, premium visual identity.
  */
 export function PageHero({ eyebrow, title, description, image, locale }: PageHeroProps) {

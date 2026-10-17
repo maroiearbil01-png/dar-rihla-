@@ -8,7 +8,7 @@ interface ServiceCardProps {
 }
 
 /**
- * Reusable card for a single hotel service/facility.
+ * Reusable card for a single riad service/facility.
  * Used on the Home page (subset) and the Services page (full list).
  */
 export function ServiceCard({ service, light = false, locale }: ServiceCardProps) {

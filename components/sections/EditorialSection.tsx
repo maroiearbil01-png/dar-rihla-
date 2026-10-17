@@ -17,7 +17,7 @@ interface EditorialSectionProps {
 }
 
 /**
- * Alternating image/text block used throughout the Home and Hotel pages.
+ * Alternating image/text block used throughout the Home and Riad pages.
  * Pass `reverse` to flip which side the photograph appears on.
  */
 export async function EditorialSection({

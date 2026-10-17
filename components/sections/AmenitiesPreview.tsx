@@ -8,7 +8,7 @@ import { t, type Locale } from "@/lib/translations";
 import { localePath } from "@/lib/paths";
 
 /**
- * Highlights a subset of hotel services on the Home page.
+ * Highlights a subset of riad services on the Home page.
  */
 export function AmenitiesPreview({ locale }: { locale: Locale }) {
   const featured = services.slice(0, 6);
